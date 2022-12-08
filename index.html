@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MYDIARY.mo</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/diary.css" />
+  <script src="/test.js"></script>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3094/3094392.png">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0px;
+      border: 0px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    body {
+      height: 100%;
+      background: linear-gradient(45deg,
+          rgba(2, 59, 2, 0.575), rgba(8, 24, 2, 0.577)), url(https://marketplace.canva.com/EAFIt9hZyHM/1/0/1236w/canva-oat-and-grey-abstract-shape-leaf-daily-journal-cover-vOghZxH6CT8.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      margin: 0;
+      padding: 0;
+    }
+
+    #container {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    #head {
+      width: 250px;
+      height: 50px;
+      margin: 0;
+      position: relative;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(177, 51, 194, 0.651);
+      text-shadow: rgba(14, 9, 88, 0.486) 5px 5px 5px;
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      font-size: 44px;
+    }
+
+    #sheetdb-form {
+      margin-top: 50px;
+      display: flex;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      flex-direction: column;
+      width: 50%;
+      outline: 2px dashed black;
+      padding: 10px;
+      background: rgba(129, 129, 129, 0.473);
+      align-items: center;
+    }
+
+    label {
+      font-size: 22px;
+      font-weight: 700;
+      color: black;
+    }
+
+    #date {
+      margin-top: 10px;
+      width: 400px;
+      font-weight: 600;
+      font-size: 30px;
+    }
+
+    #date-label {
+      font-size: 30px;
+    }
+
+    input {
+      border-radius: 7px;
+      border: none;
+      text-align: center;
+    }
+
+    #junk {
+      display: flex;
+      width: 150px;
+      justify-content: space-between;
+    }
+
+    #fizzy {
+      display: flex;
+      width: 150px;
+      justify-content: space-between;
+    }
+
+
+    #weight,
+    #wk,
+    #slp {
+      width: 50px;
+      height: 50px;
+    }
+
+
+
+    input:focus,
+    textarea:focus {
+      border: none;
+      outline: none;
+    }
+
+    .m {
+      display: flex;
+      min-width: 200px;
+    }
+
+    .n {
+      display: flex;
+      min-width: 200px;
+    }
+
+    #pm {
+      margin: 10px;
+    }
+
+    #am {
+      margin: 10px;
+    }
+
+
+    textarea {
+      width: 450px;
+      max-height: auto;
+      min-height: 100px;
+      overflow: auto;
+      border: none;
+      outline: none;
+    }
+
+    #sbmt {
+      margin-top: 20px;
+      width: 200px;
+      color: white;
+      padding: 5px;
+      background: linear-gradient(125deg, #b6074a5b, rgba(117, 1, 107, 0.534));
+
+    }
+
+    #sbmt:hover {
+      color: goldenrod;
+      cursor: pointer;
+    }
+
+    @media(max-width:1000px) {
+      textarea {
+        width: 400px;
+      }
+    }
+
+    @media(max-width:850px) {
+      #date {
+        margin-top: 15px;
+        width: 300px;
+        margin: 0px;
+        font-size: 20px;
+      }
+
+      #sheetdb-form {
+        width: 60%;
+      }
+
+      #date-label {
+        font-size: 20px;
+      }
+
+      textarea {
+        width: 300px;
+        max-height: auto;
+        min-height: 100px;
+        overflow: auto;
+        border: none;
+        outline: none;
+      }
+    }
+
+    @media (max-width:650px) {
+      textarea {
+        width: 200px;
+      }
+
+      #sheetdb-form {
+        width: 70%;
+      }
+
+      #date {
+        margin-top: 15px;
+        width: 200px;
+        margin: 0px;
+        font-size: 15px;
+      }
+
+      #date-label {
+        font-size: 15px;
+      }
+
+      .m,
+      .n {
+        width: 115px;
+      }
+    }
+
+    @media (max-width:450px) {
+      textarea {
+        width: 150px;
+      }
+
+      #sheetdb-form {
+        width: 80%;
+      }
+
+      #date {
+        margin-top: 15px;
+        width: 160px;
+        margin: 0px;
+        font-size: 10px;
+      }
+
+      #date-label {
+        font-size: 12px;
+      }
+
+      #sbmt {
+        margin-top: 20px;
+        width: 150px;
+        color: white;
+        padding: 5px;
+        background: linear-gradient(125deg, #b6074a5b, rgba(117, 1, 107, 0.534));
+
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <h1 id="head">MYDIARY.mo</h1>
+    <form id="sheetdb-form" action="https://sheetdb.io/api/v1/c9sygj4sj6tp6" method="post"
+      oninput="av.value= 12 - Number(slp.value) + Number(wk.value)">
+      <div id="date">
+        <label id="date-label" for="d">today is :</label>
+        <input type="date" name="data[date]" id="d" />
+      </div>
+      <br /><br /><br />
+      <div id="junk">
+        <input type="checkbox" value="✔" name="data[junk food]" id="j" /> <label class="junk-label" for="j">junk
+          food</label>
+
+      </div>
+      <br>
+      <div id="fizzy"> <input type="checkbox" value="✔" id="f" name="data[fizzy drinks]" /> <label for="f">fizzy
+          drinks</label></div>
+      <br>
+      <div>
+        <label>weight :</label>
+        <input type="number" id="weight" placeholder="kg" name="data[weight]">
+      </div>
+      <br>
+      <div class="m">
+        <label for="slp">sleep hour :</label>
+        <input type="number" name="data[sleep hour]" id="slp">
+        <div>
+          <input type="radio" id="pm" name="time"><label for="pm">PM</label>
+          <input type="radio" id="am" name="time" onchange="av.value= Number(wk.value) - Number(slp.value)"><label
+            for="am">AM</label>
+        </div>
+      </div><br><br>
+      <div class="n">
+        <label for="wk">wake hour (AM):</label>
+        <input type="number" name="data[wake hour]" id="wk">
+      </div>
+      <br>
+      <input type="text" id="av" name="data[sleep duration]" hidden>
+      <br>
+      <textarea id="te" placeholder="add a comment , main event or more details" name="data[comment]"></textarea>
+      <br>
+      <input type="submit" id="sbmt" value="save">
+    </form>
+    <br>
+  </div>
+</body>
+
+</html>
+
+<script>
+  var form = document.getElementById('sheetdb-form');
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(document.getElementById("sheetdb-form")),
+    }).then(
+      response => response.json()
+    ).then((html) => {
+      // you can put any JS code here
+      location.reload()
+    });
+  });
+</script>
